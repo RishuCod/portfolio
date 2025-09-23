@@ -1,0 +1,15 @@
+<h2>Projects</h2>
+<p>Selected projects that highlight my approach to simplicity and performance.</p>
+<img class="projects-img" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1600&auto=format&fit=crop" alt="Code on screen" />
+<ul>
+  @for (p of projects; track p.title) {
+    <li>
+      <strong>{{ p.title }}</strong>
+      <div>{{ p.description }}</div>
+    </li>
+  }
+  @empty {
+    <li>No projects yet.</li>
+  }
+</ul>
+<p>More coming soon. See <a routerLink="/contact">contact</a> to collaborate.</p>
