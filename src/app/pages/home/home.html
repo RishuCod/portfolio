@@ -1,12 +1,60 @@
+<style>
+  .caret { display: inline-block; width: 2px; height: 1em; background: currentColor; margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: -0.1em; }
+  @keyframes blink { 50% { opacity: 0; } }
+</style>
+<script>
+  (function(){
+    function typewrite(element, text, options) {
+      var opts = options || {};
+      var speed = opts.speed || 30;
+      var delay = opts.delay || 200;
+      var keepCaret = opts.keepCaret !== false;
+      element.textContent = '';
+      var caret = document.createElement('span');
+      caret.className = 'caret';
+      element.appendChild(caret);
+      var i = 0;
+      function step() {
+        if (i < text.length) {
+          caret.insertAdjacentText('beforebegin', text.charAt(i));
+          i++;
+          setTimeout(step, speed);
+        } else {
+          if (!keepCaret && caret.parentNode) {
+            caret.parentNode.removeChild(caret);
+          }
+        }
+      }
+      setTimeout(step, delay);
+    }
+    function initTypewriters(){
+      var heading = document.querySelector('[data-typewriter="hero-heading"]');
+      var para = document.querySelector('[data-typewriter="hero-paragraph"]');
+      if (heading) {
+        var hText = heading.getAttribute('data-text') || heading.textContent.trim();
+        typewrite(heading, hText, { speed: 40, delay: 150, keepCaret: false });
+      }
+      if (para) {
+        var pText = para.getAttribute('data-text') || para.textContent.trim();
+        typewrite(para, pText, { speed: 14, delay: 700, keepCaret: true });
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTypewriters);
+    } else {
+      initTypewriters();
+    }
+  })();
+</script>
 <section class="hero">
-  <h1>Hi, I'm Rishabh</h1>
-  <p>I’m a B.Tech CSE student (2021–2025) at ABES Institute of Technology, Ghaziabad, passionate about building simple, scalable, and impactful tech solutions. Curious by nature and driven by problem-solving, I’ve explored areas from system design and cloud computing to AI-powered applications. With experience in frontend development, full-stack projects, and competitive programming, I enjoy turning complex ideas into practical solutions that make a difference.</p>
+  <h1 #heroHeading data-text="Hi, I'm Rishabh">Hi, I'm Rishabh</h1>
+  <p #heroPara data-text="I’m a B.Tech CSE student (2021–2025) at ABES Institute of Technology, Ghaziabad, passionate about building simple, scalable, and impactful tech solutions. Curious by nature and driven by problem-solving, I’ve explored areas from system design and cloud computing to AI-powered applications. With experience in frontend development, full-stack projects, and competitive programming, I enjoy turning complex ideas into practical solutions that make a difference.">I’m a B.Tech CSE student (2021–2025) at ABES Institute of Technology, Ghaziabad, passionate about building simple, scalable, and impactful tech solutions. Curious by nature and driven by problem-solving, I’ve explored areas from system design and cloud computing to AI-powered applications. With experience in frontend development, full-stack projects, and competitive programming, I enjoy turning complex ideas into practical solutions that make a difference.</p>
 </section>
 <figure class="hero-figure" >
   <img class="hero-img" src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/demon-slayer-tanjiro.jpg?w=1600&h=900&fit=crop"/>
  </figure>
 <section class="featured" id="coursework" >
-  <h2>Course Work</h2>
+  <h2><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l8 4-8 4-8-4 8-4zm8 7v6c0 1.1-.9 2-2 2H6a2 2 0 01-2-2v-6l8 4 8-4z"/></svg>Course Work</h2>
   <div style="display: flex; flex-direction: row; gap: 10px;flex-wrap: wrap;">
   @for (course of profile.getCoursework(); track course) {
     <ul>
@@ -19,9 +67,9 @@
 </section>
 
 <section class="skills"  id="coreskill" >
-  <h2>Core Skills</h2>
+  <h2><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>Core Skills</h2>
   <div  style="display: flex; flex-direction: row; gap: 10px;flex-wrap: wrap;">
-    <strong>Languages: </strong> 
+    <strong><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 4h18v2H3V4zm2 5h14v2H5V9zm-2 5h18v2H3v-2zm2 5h14v2H5v-2z"/></svg>Languages: </strong> 
 
     @for (course of profile.getSkills().languages; track course) {
      
@@ -34,7 +82,7 @@
   <br/>
 
 <div style="display: flex; flex-direction: row; gap: 10px;flex-wrap: wrap;">
-  <strong>Technologies: </strong> 
+  <strong><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1l3 5 5 3-5 3-3 5-3-5-5-3 5-3 3-5z"/></svg>Technologies: </strong> 
 
   @for (course of profile.getSkills().technologies; track course) {
    
@@ -46,7 +94,7 @@
 </div>
 <br/>
 <div style="display: flex; flex-direction: row; gap: 10px;">
-<strong>Tools: </strong> 
+<strong><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 2l-2 2-3-1-3 3 2 2-8 8-3-1-2 2 4 4 2-2-1-3 8-8 2 2 3-3-1-3 2-2z"/></svg>Tools: </strong> 
 
 @for (course of profile.getSkills().tools; track course) {
  
@@ -61,7 +109,7 @@
 <br/><br/>
 
 <section class="featured" id="achievements">
-  <h2>Achievements</h2>
+  <h2><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 3H7v4H3v6c0 3.31 2.69 6 6 6h6c3.31 0 6-2.69 6-6V7h-4V3zm-2 2v2H9V5h6z"/></svg>Achievements</h2>
   <div>
 
     @for (course of profile.getAchievements(); track course) {
@@ -74,7 +122,7 @@
   </div></section>
 
 <section class="featured" id="education">
-  <h2>Education</h2>
+  <h2><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3 13.18V17l9 4 9-4v-3.82L12 18l-9-4.82z"/></svg>Education</h2>
   <div>
 
     <ul>
@@ -90,16 +138,16 @@
 
 
   <section class="featured" id="project">
-<h2>Projects</h2>
+<h2><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4V6zm0 4h10v2H4v-2zm0 4h16v2H4v-2z"/></svg>Projects</h2>
 <ul>
   @for (p of projects; track p.title) {
     <li>
       <strong>{{ p.title }}</strong>
       <hr style="height: 2px;background-color: lightgray;border: 0px;">
       <hr style="width: 5px; background-color: lightgray;border: none;">
-      <div class="wrapp"><strong>Technology :&nbsp;</strong>{{ p.technology }}</div>
+      <div class="wrapp"><strong><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1l3 5 5 3-5 3-3 5-3-5-5-3 5-3 3-5z"/></svg>Technology :&nbsp;</strong>{{ p.technology }}</div>
 
-      <div class="wrapp"><strong>Description :&nbsp;</strong>{{ p.description }}</div>
+      <div class="wrapp"><strong><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 6h18v2H3V6zm0 4h12v2H3v-2zm0 4h18v2H3v-2z"/></svg>Description :&nbsp;</strong>{{ p.description }}</div>
     </li>
   }
   

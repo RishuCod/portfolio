@@ -10,6 +10,9 @@
   font-size: 2.25rem;
 }
 
+.caret { display: inline-block; width: 2px; height: 1em; background: currentColor; margin-left: 2px; animation: blink 1s step-end infinite; vertical-align: -0.1em; }
+@keyframes blink { 50% { opacity: 0; } }
+
 .hero p a {
   color: var(--primary);
 }
@@ -58,6 +61,13 @@ h2 {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-right: 6px;
 }
 
 ul {
