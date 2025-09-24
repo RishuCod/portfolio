@@ -2,10 +2,10 @@
   <h1>Hi, I'm Rishabh</h1>
   <p>I’m a B.Tech CSE student (2021–2025) at ABES Institute of Technology, Ghaziabad, passionate about building simple, scalable, and impactful tech solutions. Curious by nature and driven by problem-solving, I’ve explored areas from system design and cloud computing to AI-powered applications. With experience in frontend development, full-stack projects, and competitive programming, I enjoy turning complex ideas into practical solutions that make a difference.</p>
 </section>
-<figure class="hero-figure">
+<figure class="hero-figure" >
   <img class="hero-img" src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/01/demon-slayer-tanjiro.jpg?w=1600&h=900&fit=crop"/>
  </figure>
-<section class="featured">
+<section class="featured" id="coursework" >
   <h2>Course Work</h2>
   <div style="display: flex; flex-direction: row; gap: 10px;flex-wrap: wrap;">
   @for (course of profile.getCoursework(); track course) {
@@ -17,9 +17,8 @@
   }
 </div>
 </section>
-<br/><br/>
 
-<section class="skills">
+<section class="skills"  id="coreskill" >
   <h2>Core Skills</h2>
   <div  style="display: flex; flex-direction: row; gap: 10px;flex-wrap: wrap;">
     <strong>Languages: </strong> 
@@ -61,7 +60,7 @@
 
 <br/><br/>
 
-<section class="featured">
+<section class="featured" id="achievements">
   <h2>Achievements</h2>
   <div>
 
@@ -73,14 +72,8 @@
      
     }
   </div></section>
- 
 
-
-
-
-
-  
-<section class="featured">
+<section class="featured" id="education">
   <h2>Education</h2>
   <div>
 
@@ -94,8 +87,28 @@
     
 
   </div></section>
- 
-  <p>
-    <a href="#" target="_blank" rel="noopener">Download Resume</a>
-  </p>
+
+
+  <section class="featured" id="project">
+<h2>Projects</h2>
+<ul>
+  @for (p of projects; track p.title) {
+    <li>
+      <strong>{{ p.title }}</strong>
+      <hr style="height: 2px;background-color: lightgray;border: 0px;">
+      <hr style="width: 5px; background-color: lightgray;border: none;">
+      <div class="wrapp"><strong>Technology :&nbsp;</strong>{{ p.technology }}</div>
+
+      <div class="wrapp"><strong>Description :&nbsp;</strong>{{ p.description }}</div>
+    </li>
+  }
+  
+</ul></section>
 </section>
+
+
+
+
+<a href="https://drive.google.com/file/d/1v1LjPLviMlACy6cQ6hd-5NcpW755owoR/view?usp=drivesdk"><div class="botter">Resume</div></a>
+<a href="mailto:rishabhsagaryo@gmail.com"><div class="botter" style="top: 36%;">Contact Us</div></a>
+<a href="https://github.com/RishuCod" target="_blank"><div class="botter" style="top:50%">Repository</div></a>

@@ -10,7 +10,11 @@ import { Portfolio } from '../../services/portfolio';
 })
 export class Home {
 profile:any;
+projects: {  title: string; description: string;technology:string; link?: string}[] = [];
+
   constructor(private portfolio: Portfolio) {
     this.profile = this.portfolio;
+    this.projects = this.portfolio.getProjects();
+
   }
 }

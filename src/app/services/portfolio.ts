@@ -43,37 +43,26 @@ export class Portfolio {
     ];
   }
 
-  getExperience() {
-    return [
-      {
-        company: 'Digiglobe Solutions',
-        role: 'Front-end Developer Intern',
-        period: 'June 2024 – July 2024',
-        location: 'Remote',
-        points: [
-          'Built interactive front-end components using JavaScript and React.',
-          'Contributed Community Built Components: navbars, heroes, buttons, footers.'
-        ]
-      }
-    ];
-  }
 
-  getProjects(): { title: string; description: string; link?: string }[] {
+  getProjects(): { title: string; description: string;technology:string; link?: string }[] {
     return [
       {
         title: 'AI Interviewer',
+        technology:"NextJS, ReactJS, Postgres, Clerk, Google Gemini API",
         description:
-          'NextJS, ReactJS, Postgres, Clerk, Google Gemini API • Generates questions, real-time feedback, and report cards; tracks 5–10 past sessions (July 2024)'
+          'Developed an interview preparation tool using the Google Gemini API to generate personalized questions, assess responses, and provide real-time feedback. Implemented performance tracking and session history review, with early feedback indicating a 15–20% improvement in user performance.'
       },
       {
         title: 'Cowork',
+        technology:"ReactJS, NodeJS, ExpressJS, Socket.io ",
         description:
-          'ReactJS, NodeJS, ExpressJS, Socket.io • Real-time collaborative editor supporting 500–600 concurrent users (March 2024)'
+          'Built a real-time collaborative editor supporting simultaneous content creation and editing for 500–600 users, with live updates and synchronized changes across all participants.'
       },
       {
         title: 'Chat Application',
-        description:
-          'ReactJS, Firebase • One-on-one chat with authentication for 20+ active users (September 2022)'
+        technology:"ReactJS, Firebase",
+        description:"Developed a secure one-on-one chat app with real-time messaging and user authentication for 20+ active users, featuring an intuitive interface and organized data flow for easy access to conversation history."
+       
       }
     ];
   }
